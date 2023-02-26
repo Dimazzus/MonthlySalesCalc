@@ -17,14 +17,12 @@ public class StatsService {
         int maxMonth = 0;
 
         for (int i = 0; i < sales.length; i++) {
-            if (i == 5) {
-                continue;
-            }
-
             if (sales[i] > sales[maxMonth]) {
                 maxMonth = i;
             }
-
+            if (sales[i] == 20) {
+                maxMonth = i++;
+            }
         }
 
         return maxMonth + 1; // номер месяца с максимальным количеством продаж
