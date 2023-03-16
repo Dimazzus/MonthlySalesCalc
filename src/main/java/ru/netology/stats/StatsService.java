@@ -8,6 +8,11 @@ public class StatsService {
             if (sales[i] < sales[minMonth]) { // значит, в рассматриваемом i-м месяце продаж меньше
                 minMonth = i; // запомним его как минимальный
             }
+            {
+                if (sales[minMonth] == sales[i]) {
+                    minMonth = i;
+                }
+            }
         }
 
         return minMonth + 1; // месяца нумеруются с 1, а индексы массива с 0, нужно сдвинуть ответ на 1
@@ -18,7 +23,7 @@ public class StatsService {
 
         for (int i = 0; i < sales.length; i++) {
             if (sales[i] > sales[maxMonth]) {
-            maxMonth = i;
+                maxMonth = i;
             }
             if (sales[maxMonth] == sales[i]) {
                 maxMonth = i;
@@ -54,7 +59,7 @@ public class StatsService {
     public int salesUnderAverage(int[] sales) {
         int underAverage = 0;
         for (int i = 0; i < sales.length; i++) {
-            if (sales[i] >= 15) {
+            if (sales[i] >= averageSales(sales)) {
                 continue;
             } else {
 
@@ -69,7 +74,7 @@ public class StatsService {
     public int salesOverAverage(int[] sales) {
         int overAverage = 0;
         for (int i = 0; i < sales.length; i++) {
-            if (sales[i] < 15) {
+            if (sales[i] < averageSales(sales)) {
                 continue;
             } else {
 
