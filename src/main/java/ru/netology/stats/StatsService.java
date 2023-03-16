@@ -57,11 +57,10 @@ public class StatsService {
     }
 
     public int salesUnderAverage(int[] sales) {
+        int j = averageSales(sales);
         int underAverage = 0;
         for (int i = 0; i < sales.length; i++) {
-            if (sales[i] >= averageSales(sales)) {
-                continue;
-            } else {
+            if (sales[i] < j) {
 
                 underAverage += 1;// количество месяцев продаж ниже среднего значения
             }
@@ -72,11 +71,10 @@ public class StatsService {
     }
 
     public int salesOverAverage(int[] sales) {
+        int j = averageSales(sales);
         int overAverage = 0;
         for (int i = 0; i < sales.length; i++) {
-            if (sales[i] < averageSales(sales)) {
-                continue;
-            } else {
+            if (sales[i] > j) {
 
                 overAverage += 1;// количество месяцев продаж выше среднего значения
             }

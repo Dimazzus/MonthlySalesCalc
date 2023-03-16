@@ -60,7 +60,7 @@ public class StatsServiceTest {
     void shouldCalculateOverAverageAmountSales() {
         StatsService service = new StatsService();
         int sales[] = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-        int expectedOverAverageAmount = 7;
+        int expectedOverAverageAmount = 5;
         int actualOverAverageAmount = service.salesOverAverage(sales);
 
         Assertions.assertEquals(expectedOverAverageAmount, actualOverAverageAmount);
